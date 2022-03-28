@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: NewsListPage.routeName,
       routes: {
-        // NewsListPage.routeName: (context) => NewsListPage(),
+        NewsListPage.routeName: (context) => NewsListPage(),
       },
     );
   }
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
 class NewsListPage extends StatelessWidget {
   static const routeName = '/article_list';
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class NewsListPage extends StatelessWidget {
       body: FutureBuilder<String>(
         future:
             DefaultAssetBundle.of(context).loadString('assets/articles.json'),
-        builder: (context, snapshot) {},
+        builder: (context, snapshot) => Text('text'),
       ),
     );
   }
