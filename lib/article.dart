@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Article {
   late String author;
   late String title;
@@ -30,4 +32,18 @@ class Article {
     publishedAt = article['publishedAt'];
     content = article['content'];
   }
+}
+
+//**
+//Karena Future kita mengembalikan String, maka
+//kita perlu mengonversinya menjadi objek yang kita siapkan.
+//Proses konversi ini juga dikenal dengan json parsing */
+
+List<Article> parseArticles(String? json) {
+  if (json == null) {
+    return [];
+  }
+
+  final List parsed = jsonDecode(json);
+  return parsed.map((json) => Article.fromJson(json)).toList();
 }
