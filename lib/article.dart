@@ -16,4 +16,18 @@ class Article {
     required this.publishedAt,
     required this.content,
   });
+
+  /**
+ * tambahkan juga named constructor untuk mengonversi format json menjadi bentuk object Article
+ */
+
+  Article.fromJson(Map<String, dynamic> article) {
+    author = article['author'];
+    title = article['title'];
+    description = article['description'];
+    url = article['url'];
+    urlToImage = article['urlToImage'];
+    publishedAt = article['publishedAt'];
+    content = article['content'];
+  }
 }
